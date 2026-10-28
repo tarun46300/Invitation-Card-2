@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#3a1018">
+<title>Priya & Tushar — Wedding Celebration</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--wine:#4a111d;--wine2:#71192b;--red:#9d1c35;--gold:#d6ae6c;--gold2:#f3d9a0;--cream:#fff4df;--ink:#461a20}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#260b11;color:var(--cream);font-family:Montserrat,sans-serif;overflow-x:hidden}
+button,input{font:inherit}button{cursor:pointer}
+#gate{position:fixed;inset:0;z-index:50;display:grid;grid-template-columns:1.1fr .9fr;background:#280a11;transition:opacity .9s,transform .9s}
+#gate.leaving{opacity:0;transform:scale(1.04);pointer-events:none}
+.gate-art{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:35px;background:linear-gradient(180deg,#260b1150,#260b1180),radial-gradient(ellipse at 50% 38%,#a9633e,#42111b 70%);overflow:hidden}
+.gate-art:before,.gate-art:after{content:"";position:absolute;inset:18px;border:1px solid #d6ae6c80;pointer-events:none}
+.gate-art:after{inset:27px;border:1px solid #d6ae6c30}
+.arch{position:absolute;inset:8% 11% 0;border:2px solid #d6ae6c8a;border-bottom:0;border-radius:48% 48% 0 0/28% 28% 0 0;box-shadow:inset 0 0 0 9px #d6ae6c18,0 0 55px #e8b75b16}
+.arch:before{content:"";position:absolute;inset:15px;border:1px solid #f2d69b77;border-bottom:0;border-radius:48% 48% 0 0/28% 28% 0 0}
+.gate-content{position:relative;z-index:2;max-width:540px;padding:30px 10px}
+.om{font-size:42px;color:var(--gold2);text-shadow:0 0 25px #ffcf71;margin-bottom:5px}
+.hindi{font-family:"Cormorant Garamond",serif;line-height:1.4;color:#f5d6a0;font-size:16px}
+.script{font-family:"Great Vibes",cursive;font-weight:400;color:var(--gold2)}
+.gate-title{font-size:clamp(58px,7vw,92px);line-height:1;margin:22px 0 4px;text-shadow:0 3px 30px #0008}
+.subhead{letter-spacing:4px;font-size:11px;text-transform:uppercase;color:#f4dcae}
+.gate-copy{font-family:"Cormorant Garamond",serif;font-size:22px;line-height:1.35;margin:18px auto 26px;max-width:380px}
+.name-form{max-width:370px;margin:auto}
+.name-form input{width:100%;padding:16px 18px;border:1px solid var(--gold);border-radius:4px;background:#fff7e9;color:#40131a;outline:none;text-align:center;font-size:14px;box-shadow:0 0 0 4px #d6ae6c20}
+.gold-btn{margin-top:13px;width:100%;padding:15px 20px;border:1px solid #f1d49b;border-radius:4px;color:#fff7e9;background:linear-gradient(110deg,#8d1730,#b42641,#79152b);letter-spacing:1.3px;text-transform:uppercase;font-size:11px;font-weight:600;box-shadow:0 9px 25px #0003;transition:.25s}
+.gold-btn:hover{transform:translateY(-3px);box-shadow:0 12px 32px #0005}
+.form-error{min-height:18px;color:#ffe0a4;font-size:12px;margin:8px 0}
+.gate-side{display:flex;align-items:center;justify-content:center;text-align:center;padding:40px;position:relative;background:radial-gradient(ellipse at 50% 30%,#763a30,#321019 70%)}
+.side-frame{max-width:460px;border:1px solid #d6ae6c99;padding:50px 28px;position:relative;box-shadow:0 0 0 10px #d6ae6c10,0 20px 80px #0004}
+.side-frame:before,.side-frame:after{content:"✦ ❧ ✦";position:absolute;color:var(--gold);font-size:25px;left:0;right:0}
+.side-frame:before{top:-15px}.side-frame:after{bottom:-15px}
+.side-frame h2{font:clamp(44px,5vw,68px)/1 "Great Vibes",cursive;color:var(--gold2);margin:16px 0}
+.side-frame p{font:21px/1.5 "Cormorant Garamond",serif;color:#f6e5c9}
+.lantern{position:absolute;color:#f4c56d;font-size:34px;top:8%;filter:drop-shadow(0 0 14px #ffc65a);animation:swing 4s ease-in-out infinite;transform-origin:top center}
+.lantern.left{left:12%}.lantern.right{right:12%;animation-delay:-2s}
+@keyframes swing{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(8deg)}}
+.petal{position:fixed;top:-30px;z-index:80;pointer-events:none;color:#d73a53;text-shadow:0 0 8px #ffb0a0;animation:fall linear forwards}
+@keyframes fall{to{transform:translate3d(var(--drift),110vh,0) rotate(720deg);opacity:.12}}
+#main{display:none;animation:appear 1s ease both}#main.visible{display:block}@keyframes appear{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:none}}
+nav{height:70px;position:sticky;top:0;z-index:20;background:#310c14eF;backdrop-filter:blur(12px);border-bottom:1px solid #d6ae6c66;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(16px,5vw,70px)}
+.brand{font:30px "Great Vibes",cursive;color:var(--gold2);white-space:nowrap}.navlinks{display:flex;gap:24px;align-items:center}.navlinks a{color:#fbe9c9;text-decoration:none;font-size:11px;letter-spacing:1px;text-transform:uppercase}.navlinks a:hover{color:var(--gold2)}.nav-pill{border:1px solid #d6ae6c;border-radius:40px;padding:10px 15px;background:#7d1930;color:white;font-size:11px}
+.hero{min-height:calc(100vh - 70px);display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;padding:80px 20px;background:radial-gradient(ellipse at 50% 35%,#a86a48 0,#662a2d 36%,#2a0a12 78%)}
+.hero:before{content:"";position:absolute;inset:25px;border:1px solid #d6ae6c77;pointer-events:none}.hero:after{content:"";position:absolute;inset:36px;border:1px solid #d6ae6c28;pointer-events:none}
+.hero-glow{position:absolute;width:min(75vw,650px);aspect-ratio:1;border-radius:50%;background:#ffd59b10;box-shadow:0 0 140px 70px #f9c56b0a;animation:pulse 5s infinite alternate}
+@keyframes pulse{to{transform:scale(1.12);opacity:.6}}
+.hero-inner{position:relative;z-index:2;max-width:850px}.welcome{font-size:11px;letter-spacing:5px;text-transform:uppercase;color:#f5dba8}.hero h1{font:clamp(72px,12vw,145px)/.95 "Great Vibes",cursive;color:#ffe0a0;margin:24px 0 16px;text-shadow:0 5px 35px #1c0608}.hero .amp{font-size:.48em;color:#fff0cf}.hero-date{font:28px "Cormorant Garamond",serif;color:#fff0d6;margin:24px 0 8px}.hero-line{width:180px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:25px auto}
+.personal-greeting{font:clamp(24px,4vw,40px) "Cormorant Garamond",serif;color:#fff2d8}.personal-greeting strong{display:block;color:#ffdc9b;font-size:1.3em;margin-top:6px}
+.scroll-hint{margin-top:40px;color:#f0d29c;font-size:10px;letter-spacing:3px;text-transform:uppercase;animation:bob 2s infinite}@keyframes bob{50%{transform:translateY(6px)}}
+.section{padding:85px clamp(18px,6vw,90px);position:relative}.section.light{background:#f6e6cb;color:var(--ink)}.section.dark{background:linear-gradient(135deg,#2a0a12,#4b1420)}.section-heading{text-align:center;margin-bottom:38px}.eyebrow{text-transform:uppercase;letter-spacing:4px;font-size:10px;color:#bd8f4f}.section h2{font:clamp(42px,6vw,65px) "Great Vibes",cursive;color:var(--gold2);margin:8px 0}.light h2{color:var(--wine)}.section-intro{font:21px "Cormorant Garamond",serif;max-width:620px;margin:0 auto;line-height:1.5;text-align:center}
+.countdown{display:grid;grid-template-columns:repeat(4,minmax(70px,115px));gap:12px;justify-content:center;margin:35px auto 0}.timebox{padding:17px 8px;border:1px solid #d6ae6c;background:#fff8e9;text-align:center;box-shadow:0 8px 20px #4a111d10}.timebox strong{display:block;font:36px "Cormorant Garamond",serif;color:var(--wine)}.timebox span{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#936a3c}
+.events{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;max-width:980px;margin:auto}.event-card{display:grid;grid-template-columns:78px 1fr;gap:18px;align-items:center;background:#fff5e2;color:var(--ink);padding:23px;border:1px solid #d6ae6c;box-shadow:0 10px 25px #0002;transition:transform .25s}.event-card:hover{transform:translateY(-5px)}.event-icon{width:68px;height:68px;border:1px solid #d6ae6c;border-radius:50%;display:grid;place-items:center;font-size:28px;background:#f7e4c5}.event-card h3{font:26px "Cormorant Garamond",serif;color:var(--wine);margin:0 0 5px}.event-card p{font-size:12px;line-height:1.8;margin:0}.event-card b{color:#8b4c35}
+.family-grid{max-width:900px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:20px}.family-card{padding:35px 25px;border:1px solid #d6ae6c;background:#fff2dc;color:var(--ink);text-align:center;position:relative}.family-card .label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#9d6a38}.family-card h3{font:54px "Great Vibes",cursive;color:var(--wine);margin:12px 0}.family-card p{font:18px/1.6 "Cormorant Garamond",serif;margin:0}.family-card .heart{color:#a41f36;margin:12px}
+.venue{max-width:780px;margin:auto;text-align:center;border:1px solid #d6ae6c;padding:35px 25px;background:linear-gradient(135deg,#fff2dc,#f0d7b1);color:var(--ink)}.venue .pin{font-size:32px}.venue h3{font:42px "Cormorant Garamond",serif;color:var(--wine);margin:8px}.venue p{font:19px/1.7 "Cormorant Garamond",serif}
+.wishes{text-align:center;max-width:680px;margin:auto}.wishes blockquote{font:italic 27px/1.5 "Cormorant Garamond",serif;color:#f8e5c2;margin:22px 0}.hostline{font:20px/1.7 "Cormorant Garamond",serif;color:#eacb94}
+footer{padding:28px 15px;text-align:center;background:#1d060b;color:#b98c56;font-size:10px;letter-spacing:2px}
+@media(max-width:760px){#gate{grid-template-columns:1fr}.gate-side{display:none}.gate-art{min-height:100vh}.navlinks{gap:10px}.navlinks a{font-size:9px}.navlinks a:nth-child(2),.navlinks a:nth-child(4),.navlinks a:nth-child(5){display:none}.brand{font-size:26px}.nav-pill{padding:8px 10px}.events{grid-template-columns:1fr}.family-grid{grid-template-columns:1fr}.hero{min-height:82vh}.section{padding-top:65px;padding-bottom:65px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div id="petals"></div>
+<section id="gate">
+  <div class="gate-art">
+    <div class="arch"></div><div class="lantern left">♧</div><div class="lantern right">♧</div>
+    <div class="gate-content">
+      <div class="om">ॐ</div><div class="hindi">॥ श्री गणेशाय नमः ॥<br>विघ्न विनाशक सुखकर्ता दुःखहर्ता ।<br>सर्व मंगल मूर्ति नमो गणराया ॥</div>
+      <div class="script gate-title">Welcome</div><div class="subhead">to the wedding celebration of</div>
+      <div class="script" style="font-size:clamp(45px,7vw,76px);margin:12px 0">Priya &amp; Tushar</div>
+      <div class="gate-copy">A beautiful beginning, a lifetime of love.<br>We would be honoured by your presence.</div>
+      <form class="name-form" id="guestForm">
+        <input id="guestInput" placeholder="Please enter your full name" maxlength="70" autocomplete="name" required aria-label="Your name">
+        <button class="gold-btn" type="submit">Open my invitation&nbsp; →</button>
+        <div class="form-error" id="formError" aria-live="polite"></div>
+      </form>
+    </div>
+  </div>
+  <div class="gate-side">
+    <div class="side-frame">
+      <div class="om">✧</div><div class="subhead">Save the date</div>
+      <h2>Two hearts<br>one beautiful journey</h2>
+      <div class="hero-line"></div>
+      <p>Sunday<br><strong style="font-size:36px;color:#ffe0a0">22 November 2026</strong></p>
+      <p>May this celebration be filled with blessings, laughter and memories to cherish forever.</p>
+      <div class="script" style="font-size:36px">With love, the family</div>
+    </div>
+  </div>
+</section>
+
+<main id="main">
+<nav>
+  <div class="brand">Priya &amp; Tushar</div>
+  <div class="navlinks"><a href="#home">Home</a><a href="#events">Events</a><a href="#families">Families</a><a href="#venue">Venue</a><a href="#wishes">Blessings</a></div>
+  <button class="nav-pill" id="changeGuest">♥ <span id="navGuest">Guest</span></button>
+</nav>
+<section class="hero" id="home">
+  <div class="hero-glow"></div><div class="hero-inner">
+    <div class="om">ॐ</div>
+    <div class="hindi">॥ श्री गणेशाय नमः ॥<br>विघ्न विनाशक सुखकर्ता दुःखहर्ता । सर्व मंगल मूर्ति नमो गणराया ॥</div>
+    <div class="welcome" style="margin-top:32px">With the blessings of our families, we invite</div>
+    <div class="personal-greeting">Dear <strong id="heroGuest">Guest</strong></div>
+    <div class="hero-line"></div>
+    <div class="subhead">to celebrate the wedding of</div>
+    <h1>Priya <span class="amp">&amp;</span> Tushar</h1>
+    <div class="hero-date">Sunday, 22nd November, 2026</div>
+    <div class="welcome">A day of love · A lifetime of togetherness</div>
+    <div class="scroll-hint">Scroll to explore ↓</div>
+  </div>
+</section>
+<section class="section light" id="story">
+  <div class="section-heading"><div class="eyebrow">A new chapter begins</div><h2>Counting down to forever</h2><p class="section-intro">The days are drawing near, and our hearts are full. We can't wait to celebrate this precious occasion with you.</p></div>
+  <div class="countdown"><div class="timebox"><strong id="days">--</strong><span>Days</span></div><div class="timebox"><strong id="hours">--</strong><span>Hours</span></div><div class="timebox"><strong id="minutes">--</strong><span>Minutes</span></div><div class="timebox"><strong id="seconds">--</strong><span>Seconds</span></div></div>
+</section>
+<section class="section dark" id="events">
+  <div class="section-heading"><div class="eyebrow">Join us for the festivities</div><h2>Wedding Celebrations</h2><p class="section-intro">Every moment is more beautiful when shared with the people we love.</p></div>
+  <div class="events">
+    <article class="event-card"><div class="event-icon">♫</div><div><h3>Ladies Sangeet</h3><p><b>Saturday, 21st November, 2026</b><br>7:00 p.m.<br>An evening of music, dance and joy.</p></div></article>
+    <article class="event-card"><div class="event-icon">✿</div><div><h3>Reception of Barat</h3><p><b>Sunday, 22nd November, 2026</b><br>10:00 a.m.<br>Welcome the wedding procession with blessings.</p></div></article>
+    <article class="event-card"><div class="event-icon">❦</div><div><h3>Wedding Lunch</h3><p><b>Sunday, 22nd November, 2026</b><br>11:00 a.m.<br>Come together for a meal and happy memories.</p></div></article>
+    <article class="event-card"><div class="event-icon">♡</div><div><h3>Doli</h3><p><b>Sunday, 22nd November, 2026</b><br>4:00 p.m.<br>A heartfelt farewell and a beautiful new beginning.</p></div></article>
+  </div>
+</section>
+<section class="section light" id="families">
+  <div class="section-heading"><div class="eyebrow">Two families, one celebration</div><h2>With blessings &amp; love</h2></div>
+  <div class="family-grid">
+    <div class="family-card"><div class="label">The Bride</div><h3>Priya</h3><p> Grand Daughter of<br><strong>Smt. Chandermukhi</strong><br>&amp; <strong>Sh. Dhajja Ram</strong></p><div class="heart">♥</div></div>
+    <div class="family-card"><div class="label">The Groom</div><h3>Tushar</h3><p>Son of<br><strong>Smt. Indrawati Devi</strong><br>&amp; <strong>Late Sh. Shri Bhagwan Kaushik</strong></p><div class="heart">♥</div></div>
+  </div>
+  <div style="text-align:center;margin:35px auto 0;max-width:600px;font:20px/1.7 'Cormorant Garamond',serif">A cordial invitation from<br><strong style="font-size:28px;color:#6f302b">Surender Kumar</strong><br>(S/o Sh. Dhajja Ram)<br>V.P.O. Bhuwana, Jind, Haryana</div>
+</section>
+<section class="section dark" id="venue">
+  <div class="section-heading"><div class="eyebrow">We look forward to welcoming you</div><h2>Venue &amp; Details</h2></div>
+  <div class="venue"><div class="pin">⌖</div><div class="eyebrow">Wedding celebrations</div><h3>V.P.O. Bhuwana</h3><p>Jind, Haryana, India<br>Please join us for the celebrations as per the programme.</p><p style="font-size:14px">For directions, please confirm the exact venue with the family before travelling.</p></div>
+</section>
+<section class="section dark" id="wishes">
+  <div class="wishes"><div class="eyebrow">Your presence is our greatest gift</div><h2 class="script" style="font-size:66px;margin:12px 0">A heartfelt invitation</h2><blockquote>“May our homes be filled with laughter, our hearts with love, and this new journey with blessings that last a lifetime.”</blockquote><div class="hostline">We eagerly await the pleasure of your company.<br><span class="script" style="font-size:42px;color:#f3d9a0">Priya &amp; Tushar's Family</span></div><button class="gold-btn" style="max-width:300px" id="shareBtn">Share this invitation ↗</button></div>
+</section>
+<footer>MADE WITH LOVE · PRIYA &amp; TUSHAR · 21–22 NOVEMBER 2026</footer>
+</main>
+<script>
+const gate=document.getElementById('gate'), main=document.getElementById('main'), input=document.getElementById('guestInput');
+let guestName='';
+function safeName(v){return (v||'').replace(/[<>]/g,'').trim().slice(0,70)}
+function showInvitation(name, updateUrl=true){
+  guestName=safeName(name); if(!guestName)return;
+  document.getElementById('heroGuest').textContent=guestName;
+  document.getElementById('navGuest').textContent=guestName.length>15?guestName.slice(0,13)+'…':guestName;
+  gate.classList.add('leaving');
+  setTimeout(()=>{gate.style.display='none';main.classList.add('visible');document.body.style.overflowX='hidden';},650);
+  if(updateUrl){const u=new URL(location.href);u.searchParams.set('to',guestName);history.pushState({guestName},'',u);}
+  startPetals();
+}
+document.getElementById('guestForm').addEventListener('submit',e=>{
+  e.preventDefault();const n=safeName(input.value);
+  if(!n){document.getElementById('formError').textContent='Please enter your name to open the invitation.';return;}
+  showInvitation(n,true);
+});
+document.getElementById('changeGuest').addEventListener('click',()=>{
+  main.classList.remove('visible');main.style.display='none';gate.style.display='grid';gate.classList.remove('leaving');gate.style.opacity='1';gate.style.transform='none';input.value=guestName;input.focus();
+});
+function startPetals(){
+  const holder=document.getElementById('petals');
+  if(holder.dataset.started)return;holder.dataset.started='1';
+  const symbols=['✿','❀','♥','✦'];
+  setInterval(()=>{if(document.hidden)return;const p=document.createElement('span');p.className='petal';p.textContent=symbols[Math.floor(Math.random()*symbols.length)];p.style.left=Math.random()*100+'vw';p.style.fontSize=(10+Math.random()*15)+'px';p.style.animationDuration=(7+Math.random()*7)+'s';p.style.setProperty('--drift',(Math.random()*220-110)+'px');holder.appendChild(p);setTimeout(()=>p.remove(),15000)},550);
+}
+function updateCountdown(){
+ const target=new Date('2026-11-22T10:00:00+05:30').getTime(), now=Date.now(), diff=Math.max(0,target-now);
+ document.getElementById('days').textContent=Math.floor(diff/86400000);
+ document.getElementById('hours').textContent=Math.floor(diff%86400000/3600000);
+ document.getElementById('minutes').textContent=Math.floor(diff%3600000/60000);
+ document.getElementById('seconds').textContent=Math.floor(diff%60000/1000);
+}
+updateCountdown();setInterval(updateCountdown,1000);
+document.getElementById('shareBtn').addEventListener('click',async()=>{
+ const u=new URL(location.href);u.searchParams.set('to',guestName);
+ const data={title:'Priya & Tushar Wedding Invitation',text:'You are warmly invited to Priya & Tushar’s wedding celebration.',url:u.toString()};
+ if(navigator.share){try{await navigator.share(data)}catch(e){}}
+ else{try{await navigator.clipboard.writeText(data.text+' '+data.url);alert('Invitation link copied!')}catch(e){prompt('Copy invitation link:',u.toString())}}
+});
+const queryName=safeName(new URLSearchParams(location.search).get('to'));
+if(queryName){input.value=queryName;setTimeout(()=>showInvitation(queryName,false),250)}
+</script>
+</body></html>
